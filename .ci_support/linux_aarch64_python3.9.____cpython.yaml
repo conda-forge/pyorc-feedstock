@@ -15,7 +15,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-aarch64
 orc:
-- 1.6.10
+- 1.7.0
 pin_run_as_build:
   python:
     min_pin: x.x
