@@ -1,16 +1,16 @@
 package:
   name: pyorc
-  version: "0.4.0"
+  version: "0.5.0"
 
 source:
-  url: https://pypi.io/packages/source/p/pyorc/pyorc-0.4.0.tar.gz
-  sha256: af56c50dd0545b451a37d38e73e02405f332e91779cf9ab1c8ae3e61b9eb0c90
+  url: https://pypi.io/packages/source/p/pyorc/pyorc-0.5.0.tar.gz
+  sha256: 89c4c708c653d0fe90f251fbcc4a6057daf7cf63c23dfe3d644d9ed2603e296d
 
 build:
-  number: 5
+  number: 0
   script: |
     {{ PYTHON }} -m pip install . -vv
-  skip: True  # [win]
+  skip: True  # [win or (aarch64 and py<39)]
 
 requirements:
   build:
@@ -19,9 +19,10 @@ requirements:
     - python
     - pip
     - pybind11
-    - orc
+    - orc 1.7.0
   run:
     - python
+    - backports.zoneinfo  # [py<39]
 
 test:
   requires:
