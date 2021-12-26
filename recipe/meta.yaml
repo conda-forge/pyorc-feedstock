@@ -22,7 +22,7 @@ requirements:
     - orc 1.7.0
   run:
     - python
-    - backports.zoneinfo # [py<39]
+    - backports.zoneinfo  # [py<39]
 
 test:
   requires:
