@@ -19,7 +19,7 @@ requirements:
     - python
     - pip
     - pybind11
-    - orc 1.7.0
+    - orc 1.7.2
   run:
     - python
     - backports.zoneinfo  # [py<39]
