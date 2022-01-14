@@ -6,7 +6,8 @@ source:
   url: https://pypi.io/packages/source/p/pyorc/pyorc-0.5.0.tar.gz
   sha256: 89c4c708c653d0fe90f251fbcc4a6057daf7cf63c23dfe3d644d9ed2603e296d
   patches:
-    - patches/0001-Fix-software-version-test.patch   # https://github.com/conda-forge/pyorc-feedstock/pull/18#issuecomment-1012846145
+    # https://github.com/conda-forge/pyorc-feedstock/pull/18#issuecomment-1012846145
+    - patches/0001-Fix-software-version-test.patch
 
 build:
   number: 1
