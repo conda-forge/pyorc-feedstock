@@ -1,9 +1,11 @@
+{% set version = "0.5.0" %}
+
 package:
   name: pyorc
-  version: "0.5.0"
+  version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pyorc/pyorc-0.5.0.tar.gz
+  url: https://pypi.io/packages/source/p/pyorc/pyorc-{{ version }}.tar.gz
   sha256: 89c4c708c653d0fe90f251fbcc4a6057daf7cf63c23dfe3d644d9ed2603e296d
   patches:
     # https://github.com/conda-forge/pyorc-feedstock/pull/18#issuecomment-1012846145
@@ -11,8 +13,7 @@ source:
 
 build:
   number: 4
-  script: |
-    {{ PYTHON }} -m pip install . -vv
+  script: "{{ PYTHON }} -m pip install . -vv"
   skip: True  # [win]
 
 requirements:
