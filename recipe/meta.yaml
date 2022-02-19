@@ -1,4 +1,4 @@
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: pyorc
@@ -6,15 +6,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pyorc/pyorc-{{ version }}.tar.gz
-  sha256: 89c4c708c653d0fe90f251fbcc4a6057daf7cf63c23dfe3d644d9ed2603e296d
+  sha256: 8ec75de7461cc4a22f999faaabc19d727da6a3e059f578f0463aabe21565f312
   patches:
     # https://github.com/conda-forge/pyorc-feedstock/pull/18#issuecomment-1012846145
     - patches/0001-Fix-software-version-test.patch
 
 build:
-  number: 4
-  script: "{{ PYTHON }} -m pip install . -vv"
-  skip: True  # [win]
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
+  skip: true  # [win]
 
 requirements:
   build:
@@ -45,7 +45,7 @@ about:
   license_file:
     - LICENSE
     - vendor-licenses/
-  summary: 'Python module for Apache ORC file format'
+  summary: Python module for Apache ORC file format
   description: |
     Python module for reading and writing Apache ORC
     file format. It uses the Apache ORC's Core C++ API
