@@ -9,7 +9,7 @@ source:
   sha256: 8ec75de7461cc4a22f999faaabc19d727da6a3e059f578f0463aabe21565f312
 
 build:
-  number: 1
+  number: 2
   script: PYORC_SKIP_ORC_BUILD=1 {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
