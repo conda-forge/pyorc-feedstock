@@ -9,9 +9,9 @@ source:
   sha256: 3f52243b7e300cb0fbfb7621d30693cf21392ec5ead3bb32a31d44f2d6bf656a
 
 build:
-  number: 2
-  script: PYORC_SKIP_ORC_BUILD=1 PYORC_LIBRARIES="orc" {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win]
+  number: 3
+  script: PYORC_SKIP_ORC_BUILD=1 PYORC_LIBRARIES="orc" {{ PYTHON }} -m pip install . -vv  # [not win]
+  script: set PYORC_SKIP_ORC_BUILD=1&&set PYORC_LIBRARIES=orc&&{{ PYTHON }} -m pip install . -vv  # [win]
 
 requirements:
   build:
@@ -24,6 +24,7 @@ requirements:
   run:
     - python
     - backports.zoneinfo  # [py<39]
+    - python-tzdata  # [win]
 
 test:
   requires:
@@ -31,10 +32,11 @@ test:
   imports:
     - pytest
     - pyorc
+    - tzdata  # [win]
   source_files:
     - tests/
   commands:
-    - py.test -vs tests/test_*
+    - py.test --ignore=tests/compare -vs tests 
 
 about:
   home: https://github.com/noirello/pyorc
