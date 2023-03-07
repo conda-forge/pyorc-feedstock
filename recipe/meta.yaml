@@ -36,7 +36,7 @@ test:
   source_files:
     - tests/
   commands:
-    - py.test -vs tests/test_*
+    - py.test --ignore=tests/compare -vs tests 
 
 about:
   home: https://github.com/noirello/pyorc
