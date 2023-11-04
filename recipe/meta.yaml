@@ -1,4 +1,4 @@
-{% set version = "0.8.0" %}
+{% set version = "0.9.0" %}
 
 package:
   name: pyorc
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/p/pyorc/pyorc-{{ version }}.tar.gz
-  sha256: 3f52243b7e300cb0fbfb7621d30693cf21392ec5ead3bb32a31d44f2d6bf656a
+  sha256: aec25c98c5bf77a9ce5c1d2e9bf0564b4129339c8a122f42d6c55d8bdcef42d6
 
 build:
-  number: 5
+  number: 0
   script: PYORC_SKIP_ORC_BUILD=1 PYORC_LIBRARIES="orc" {{ PYTHON }} -m pip install . -vv  # [not win]
   script: set PYORC_SKIP_ORC_BUILD=1&&set PYORC_LIBRARIES=orc&&{{ PYTHON }} -m pip install . -vv  # [win]
 
@@ -39,7 +39,7 @@ test:
   source_files:
     - tests/
   commands:
-    - py.test --ignore=tests/compare -vs tests 
+    - py.test --ignore=tests/compare -vs tests
 
 about:
   home: https://github.com/noirello/pyorc
