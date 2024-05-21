@@ -10,8 +10,8 @@ source:
 
 build:
   number: 0
-  script: PYORC_SKIP_ORC_BUILD=1 PYORC_LIBRARIES="orc" {{ PYTHON }} -m pip install . -vv  # [not win]
-  script: set PYORC_SKIP_ORC_BUILD=1&&set PYORC_LIBRARIES=orc&&{{ PYTHON }} -m pip install . -vv  # [win]
+  script: PYORC_SKIP_ORC_BUILD=1 PYORC_LIB_VERSION="{{ orc }}" {{ PYTHON }} -m pip install . -vv          # [unix]
+  script: set PYORC_SKIP_ORC_BUILD=1&&set PYORC_LIB_VERSION={{ orc }}&&{{ PYTHON }} -m pip install . -vv  # [win]
 
 requirements:
   build:
