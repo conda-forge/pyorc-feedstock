@@ -7,6 +7,8 @@ package:
 source:
   url: https://pypi.io/packages/source/p/pyorc/pyorc-{{ version }}.tar.gz
   sha256: aec25c98c5bf77a9ce5c1d2e9bf0564b4129339c8a122f42d6c55d8bdcef42d6
+  patches:
+    - patches/0001-point-to-our-own-libraries-includes.patch
 
 build:
   number: 0
