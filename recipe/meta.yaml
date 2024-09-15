@@ -12,7 +12,7 @@ source:
     - patches/0002-remove-TZDIR-work-arounds-that-aren-t-needed-for-orc.patch
 
 build:
-  number: 1
+  number: 2
   script: PYORC_SKIP_ORC_BUILD=1 PYORC_LIB_VERSION="{{ orc }}" {{ PYTHON }} -m pip install . -vv          # [unix]
   script: set PYORC_SKIP_ORC_BUILD=1&&set PYORC_LIB_VERSION={{ orc }}&&{{ PYTHON }} -m pip install . -vv  # [win]
   # segfaults on osx for as-yet-unknown reasons
