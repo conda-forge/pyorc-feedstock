@@ -5,14 +5,14 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pyorc/pyorc-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pyorc/pyorc-{{ version }}.tar.gz
   sha256: aec25c98c5bf77a9ce5c1d2e9bf0564b4129339c8a122f42d6c55d8bdcef42d6
   patches:
     - patches/0001-point-to-our-own-libraries-includes.patch
     - patches/0002-remove-TZDIR-work-arounds-that-aren-t-needed-for-orc.patch
 
 build:
-  number: 3
+  number: 4
   script: PYORC_SKIP_ORC_BUILD=1 PYORC_LIB_VERSION="{{ orc }}" {{ PYTHON }} -m pip install . -vv          # [unix]
   script: set PYORC_SKIP_ORC_BUILD=1&&set PYORC_LIB_VERSION={{ orc }}&&{{ PYTHON }} -m pip install . -vv  # [win]
   # segfaults on osx for as-yet-unknown reasons
