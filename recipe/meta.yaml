@@ -16,8 +16,8 @@ build:
   script_env:
     - PYORC_SKIP_ORC_BUILD=1
     - PYORC_LIB_VERSION={{ orc }}
+    - PYORC_LIBRARIES=orc,libprotobuf       # [win]
   script:
-    - set "CL=/DPROTOBUF_USE_DLLS"                   # [win]
     - {{ PYTHON }} -m pip install . -vv
   # segfaults on osx for as-yet-unknown reasons
   skip: true  # [osx]
