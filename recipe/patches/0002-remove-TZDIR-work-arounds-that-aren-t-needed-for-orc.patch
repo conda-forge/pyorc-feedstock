@@ -1,28 +1,17 @@
-From 3a39e2772fa8d338d4301eab0eccd9ee3f1bfc12 Mon Sep 17 00:00:00 2001
-From: "H. Vetinari" <h.vetinari@gmx.com>
-Date: Tue, 21 May 2024 21:38:05 +1100
-Subject: [PATCH 2/2] remove TZDIR work-arounds that aren't needed for
- orc>=2.0.1
-
----
- setup.py              | 1 -
- src/pyorc/__init__.py | 8 --------
- 2 files changed, 9 deletions(-)
-
-diff --git a/setup.py b/setup.py
-index 4f08723..5703fd0 100644
---- a/setup.py
-+++ b/setup.py
-@@ -266,7 +266,6 @@ setup(
-     ],
-     python_requires=">=3.6",
-     install_requires=[
--        'tzdata >= 2020.5 ; sys_platform == "win32"',
-         'backports.zoneinfo >= 0.2.1 ; python_version < "3.9"',
-     ],
- )
+diff --git a/pyproject.toml b/pyproject.toml
+index ebc852a..dc23360 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -28,7 +28,6 @@ classifiers = [
+     "Programming Language :: Python :: 3.14",
+ ]
+ dependencies = [
+-    "tzdata >= 2020.5; sys_platform == 'win32'",
+     "backports.zoneinfo >= 0.2.1; python_version < '3.9'",
+ ]
+ 
 diff --git a/src/pyorc/__init__.py b/src/pyorc/__init__.py
-index 9be7043..447481c 100644
+index a40acea..c535700 100644
 --- a/src/pyorc/__init__.py
 +++ b/src/pyorc/__init__.py
 @@ -2,14 +2,6 @@ import os
@@ -37,6 +26,6 @@ index 9be7043..447481c 100644
 -
 -    os.environ["TZDIR"] = os.path.join(os.path.dirname(tzdata.__file__), "zoneinfo")
 -
- from pyorc._pyorc import _orc_version
+ from pyorc._pyorc import _orc_version, _protobuf_version
  
  from .enums import *
