@@ -16,7 +16,9 @@ build:
   script_env:
     - PYORC_SKIP_ORC_BUILD=1
     - PYORC_LIBRARIES="orc"
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - set "CL=/DPROTOBUF_USE_DLLS"                   # [win]
+    - {{ PYTHON }} -m pip install . -vv
   # segfaults on osx for as-yet-unknown reasons
   skip: true  # [osx]
 
@@ -33,10 +35,12 @@ requirements:
     - setuptools
     - pybind11
     - orc
+    - libprotobuf  # [win]
   run:
     - python
     - backports.zoneinfo  # [py<39]
     - tzdata
+    - libprotobuf  # [win]
 
 test:
   requires:
