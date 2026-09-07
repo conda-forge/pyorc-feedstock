@@ -5,14 +5,14 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/p/pyorc/pyorc-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/p/pyorc/pyorc-{{ version }}.tar.gz
   sha256: 6f849a837d5ed714268b7f8cdf3d79cfcf37f0ffb9f695c91e002660ca1d0b12
   patches:
     - patches/0001-point-to-our-own-libraries-includes.patch
     - patches/0002-remove-TZDIR-work-arounds-that-aren-t-needed-for-orc.patch
 
 build:
-  number: 3
+  number: 4
   script_env:
     - PYORC_SKIP_ORC_BUILD=1
     - PYORC_LIB_VERSION={{ orc }}
